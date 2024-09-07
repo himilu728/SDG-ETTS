@@ -33,8 +33,8 @@
 <ul>
   <li><a href="#abstract">Abstract</a></li>
   <li><a href='#emotion_transfer'>Emotion Transfer</a></li>
-  <!--<li><a href='#long_form_utterance'>Long-form Utterance</a></li>-->
-  <!--<li><a href='#various_LLM_CE_strategies'>Various LLM-CE Strategies</a></li>-->
+  <li><a href='#long_form_utterance'>Long-form Utterance</a></li>
+  <li><a href='#fine-grained semantic control'>Fine-grained semantic control</a></li>
 </ul>
 
 <br>
@@ -50,7 +50,7 @@
 </p>
 <center><img src='myfig/SDG.png'></center>
 <p style="text-align: justify; font-size:16px;font-color:#D5CFCF;margin-left: 20px;margin-right:20px ;margin-top: 10px;">
-	Fig1:  The fine-tuning process of the CLAP audio encoder and the inference process of the proposed SDG-ETTS. The purple dashed box provides the guiding function for the diffusion model during a single iteration of inference.
+	Fig. 1:  The fine-tuning process of the CLAP audio encoder and the inference process of the proposed SDG-ETTS. The purple dashed box provides the guiding function for the diffusion model during a single iteration of inference.
 </p>
 
 
@@ -94,189 +94,9 @@
 </table>
 <h2>3. Long-form Utterance<a name="long_form_utterance"></a></h2>
 <table>
-
-  	<tbody>
-		<tr>
-            <td style="text-align: left" colspan=5>1. 夏日的海岛夜晚，繁星漫天，四周虫鸣伴随着海浪声，“声声”不息。在浙江舟山普陀青石子，随着第一颗流星划破天际，期盼已久的观星者纷纷通过观测设备，观赏美丽景观。“流星眨眼不见了，如此近距离地看到流星，让人仿佛置身童话的世界，大自然真的太美了。”当地学生祁嘉文如是说。这是“千岛之城”舟山开展“星辰大海”计划中的剪影。众所周知，拥有两千零八十五个岛屿的舟山被称为“千岛之城”，海域辽阔、海岛众多，拥有普陀山、东极岛、花鸟岛等“网红”景点，正走出旅游产品特色化、旅游资源集聚化、服务标准国际化的海岛独特风景线。二零二二年五月，该市启动实施“星辰大海”计划，聚焦城市滨海岸线独特地理空间，致力于打造一批海洋景观设施、文化标识工程、精品文旅产业项目，实现“串珠成链、串链成带、串带成环”，形成文化旅游产业融合发展和城市滨海岸线融合共生的新格局。
-		</tr>  
-      	<tr>     
-            <th style="text-align: center"><strong>Fastspeech2</strong></th>
-            <th style="text-align: center"><strong>Proposed</strong></th> 
-            <th style="text-align: center"><strong>w/o GCPI</strong></th>
-            <th style="text-align: center"><strong>w/o LLM-CE</strong></th> 
-            <th style="text-align: center"><strong>w/o MEGA</strong></th>
-      	</tr>
-		<tr>
-	     	<td style="text-align: center"><audio src="mysamples/long-form audio/fs2/000054.wav" controls="" preload=""></audio></td>
-            <td style="text-align: center"><audio src="mysamples/long-form audio/proposed/000054.wav" controls="" preload=""></audio></td>
-            <td style="text-align: center"><audio src="mysamples/long-form audio/without GCPI/000054.wav" controls="" preload=""></audio></td> 
-            <td style="text-align: center"><audio src="mysamples/long-form audio/without LLM-CE/000054.wav" controls="" preload=""></audio></td>
-            <td style="text-align: center"><audio src="mysamples/long-form audio/without MEGA/000054.wav" controls="" preload=""></audio></td>
-		</tr>
-		
-		<tr>
-            <td style="text-align: left" colspan=5>2. 近日，一个国际研究团队发现，每天仅需走两千三百三十七步就可降低心脏和血管疾病的死亡风险，每天走三千九百六十七步可降低所有疾病带来的死亡风险。科学家汇集了十七项相关研究，分析了二十余万人的数据发现，走得越多，对健康的好处就越大。每天多走五百步，心血管疾病的死亡风险降低百分之七。每天多走一千步，所有疾病的死亡风险都降低百分之十五。研究发现，即使人们每天步行多达两万步，对健康的好处仍持续增加，还没有发现上限。同时有强有力的证据表明，久坐的生活方式可能会导致心血管疾病的增加和寿命的缩短。根据世界卫生组织的数据，身体活动不足是世界上第四大常见死亡原因，每年有三百二十万例死亡与身体活动不足有关。
-      	</tr>  
-      	<tr>     
-            <th style="text-align: center"><strong>Fastspeech2</strong></th>
-            <th style="text-align: center"><strong>Proposed</strong></th> 
-            <th style="text-align: center"><strong>w/o GCPI</strong></th>
-            <th style="text-align: center"><strong>w/o LLM-CE</strong></th> 
-            <th style="text-align: center"><strong>w/o MEGA</strong></th>
-      	</tr>
-		<tr>
-	     	<td style="text-align: center"><audio src="mysamples/long-form audio/fs2/000015.wav" controls="" preload=""></audio></td>
-            <td style="text-align: center"><audio src="mysamples/long-form audio/proposed/000015.wav" controls="" preload=""></audio></td>
-            <td style="text-align: center"><audio src="mysamples/long-form audio/without GCPI/000015.wav" controls="" preload=""></audio></td> 
-            <td style="text-align: center"><audio src="mysamples/long-form audio/without LLM-CE/000015.wav" controls="" preload=""></audio></td>
-            <td style="text-align: center"><audio src="mysamples/long-form audio/without MEGA/000015.wav" controls="" preload=""></audio></td>
-		</tr>
-		
-		<tr>
-            <td style="text-align: left" colspan=5>3. “第一次跟着教练开始练武术的时候，每天都是压柔韧压腿，一把鼻涕一把泪的。想过放弃，但是我想既然是自己的选择，那就要坚持下去。”来自甘肃天水今年十九岁的王璞表示，因为从小喜欢看武侠小说爱上了武术，习武五年虽辛苦，却也收获了武术带给自己的好体魄和自信的状态。作为传统体育运动项目，武术有修身、养性、健体之效。如今，有不少“九零后”“零零后”的青少年也开始热衷于这项有着悠久历史的运动。近日，千余名“武林高手”齐聚“中国武术之乡”甘肃平凉崆峒山脚下，参加第四届平凉崆峒武术节暨第三届“甘小侠”西北五省区青少年演武大会进行比武切磋。
-		</tr>  
-      	<tr>     
-            <th style="text-align: center"><strong>Fastspeech2</strong></th>
-            <th style="text-align: center"><strong>Proposed</strong></th> 
-            <th style="text-align: center"><strong>w/o GCPI</strong></th>
-            <th style="text-align: center"><strong>w/o LLM-CE</strong></th> 
-            <th style="text-align: center"><strong>w/o MEGA</strong></th>
-      	</tr>
-		<tr>
-	     	<td style="text-align: center"><audio src="mysamples/long-form audio/fs2/000074.wav" controls="" preload=""></audio></td>
-            <td style="text-align: center"><audio src="mysamples/long-form audio/proposed/000074.wav" controls="" preload=""></audio></td>
-            <td style="text-align: center"><audio src="mysamples/long-form audio/without GCPI/000074.wav" controls="" preload=""></audio></td> 
-            <td style="text-align: center"><audio src="mysamples/long-form audio/without LLM-CE/000074.wav" controls="" preload=""></audio></td>
-            <td style="text-align: center"><audio src="mysamples/long-form audio/without MEGA/000074.wav" controls="" preload=""></audio></td>
-		</tr>
-		
-		<tr>
-            <td style="text-align: left" colspan=5>4. 没有系统学习过物理学专业基础知识，却在领域顶级刊物上发表了论文，而且是第一作者和通讯作者的双重身份，合作者是天体物理领域的大牛人，他就是自称“民科”的业余物理学爱好者老梁，这段不同寻常的经历引起了网友们的兴趣。老梁是一九七七年恢复高考后的第一届大学生，学的虽然是拖拉机制造，后来创业做机电设计，却在年近五十岁的时候重拾物理学研究的爱好，目前已经发表了三篇论文，他不介意被人称为“民科”，但认为业余科学研究也要遵守科学共同体的规则。老梁学的是拖拉机设计，后来创业开发汽车检测设备，确实和理论物理没什么关系。一九五五年，老梁出生在河北农村，他在读高中的时候遇到一个非常好的物理老师，“是北京大学物理专业毕业的，他教物理给我耳目一新的感觉，所以他对我的影响比较大。”
-		</tr>  
-      	<tr>     
-            <th style="text-align: center"><strong>Fastspeech2</strong></th>
-            <th style="text-align: center"><strong>Proposed</strong></th> 
-            <th style="text-align: center"><strong>w/o GCPI</strong></th>
-            <th style="text-align: center"><strong>w/o LLM-CE</strong></th> 
-            <th style="text-align: center"><strong>w/o MEGA</strong></th>
-      	</tr>
-		<tr>
-	     	<td style="text-align: center"><audio src="mysamples/long-form audio/fs2/000093.wav" controls="" preload=""></audio></td>
-            <td style="text-align: center"><audio src="mysamples/long-form audio/proposed/000093.wav" controls="" preload=""></audio></td>
-            <td style="text-align: center"><audio src="mysamples/long-form audio/without GCPI/000093.wav" controls="" preload=""></audio></td> 
-            <td style="text-align: center"><audio src="mysamples/long-form audio/without LLM-CE/000093.wav" controls="" preload=""></audio></td>
-            <td style="text-align: center"><audio src="mysamples/long-form audio/without MEGA/000093.wav" controls="" preload=""></audio></td>
-		</tr>
-		
-  	</tbody>
 </table>
 
-<h2>4. Various LLM-CE Strategies<a name="various_LLM_CE_strategies"></a></h2>
-<h3>4.1 Intercross vs. No Intercross</h3>
-<table>
-	<tbody>
-			<tr>
-	            <td style="text-align: left" colspan=2>1. 距离暑期档结束还有十四天，档期票房已刷新历史纪录。据猫眼专业版数据，截至八月十七日十九时二十九分，二零二三年暑期档总票房突破一百七十七点七九亿元，超过二零一九年的一百七十七点七八亿元，刷新中国影史暑期档票房纪录。同时大盘票房连续五十八天破亿元，创中国影史连续破亿天数新高。四部影片票房突破二十亿元，创中国影史暑期档新高。有影视从业者对《证券日报》记者表示：“当前影视行业的强势复苏可以说是超行业预期的，同时，票房刷新历史纪录，也极大的提振了从业人员信心。”暑期档在优质高满意度国产影片带动下热度不断攀升，全面展现出中国电影市场强大的韧性与蓬勃的活力。猫眼娱乐方面表示，作为中国电影行业的重要参与者之一，对中国电影的未来充满信心。
-			</tr>  
-	      	<tr>     
-	      		<th style="text-align: center"><strong>&nbsp; Intercross &nbsp;</strong></th>
-	            <th style="text-align: center"><strong>No Intercross</strong></th> 
-	      	</tr>
-			<tr>
-		     	<td style="text-align: center"><audio src="mysamples/various_llm_ce_strategies/intercross/000062.wav" controls="" preload=""></audio></td>
-	            <td style="text-align: center"><audio src="mysamples/various_llm_ce_strategies/no intercross/000062.wav" controls="" preload=""></audio></td>
-	       </tr>
-			
-			<tr>
-	            <td style="text-align: left" colspan=2>2. 中国国家五人制棒球队赞助签约发布会八月十七日在京举行。会上，中国棒球协会向运动品牌——天跑正式授牌，指定天跑作为国家五人制棒球队唯一指定运动服装类赞助商。据中国棒球协会主席陈旭现场介绍，棒球运动在世界范围内都有着很高的地位和影响力。但由于各方面的原因，棒球运动在中国仍然偏于小众。近年来，在政策支持和体育产业发展的推动下，中国棒球业已取得了显著的进步。据相关资料显示，中国棒球整体人口规模已超千万。其中超过八成的棒球人群年龄集中在二十至三十五岁，年轻化趋势明显。尤其是五人制棒球运动，由于其自身具有上场人数少、比赛节奏快、观赏性强等特点，非常受年轻人的欢迎。
-			</tr>  
-	      	<tr>     
-	            <th style="text-align: center"><strong>&nbsp; Intercross &nbsp;</strong></th>
-	            <th style="text-align: center"><strong>No Intercross</strong></th> 
-	        </tr>
-			<tr>
-		     	<td style="text-align: center"><audio src="mysamples/various_llm_ce_strategies/intercross/000067.wav" controls="" preload=""></audio></td>
-	            <td style="text-align: center"><audio src="mysamples/various_llm_ce_strategies/no intercross/000067.wav" controls="" preload=""></audio></td>
-	        </tr>
-			
-	</tbody>
-</table>
-<h3>4.2 Various Context Sets</h3>
-<table>
-	<tbody>
-		<tr>
-            <td style="text-align: left" colspan=5>1. 看过海豚、挖过螃蟹，从那以后，每年的寒暑假，父母都会带我游历祖国的大好河山，有时，一年能走上八九个城市。每一次行走，家人都会“强迫”我写一篇游记。有一次，老师出了“环保”的命题作文。我在结尾写道：“若干年后，地球上的河流湖泊会比漓江还清上三分”，父母看到后觉得“桂林总算没白去”。上大学后，我兼职挣了些钱，加上父母的资助，买了人生第一台相机，开启了穷游模式。绿皮火车和青年旅馆成了我每趟旅行的必选，学生证还能带来一些优惠，每座城市的花销能控制在一千五百元以内。我企图用最少的钱看最多的风景。很长一段时间，我抱着“路过就是看过”的集邮式心态旅游。为了告诉别人我来过，在地标性建筑打卡排长队，疯狂去微博、朋友圈等社交媒体晒照，将打卡拍照当成刷题，好像点赞量越多，这趟旅行的价值就越大。
-		</tr> 
-		<tr>
-			<th style="text-align: center"><strong>1 context sets</strong></th>
-            <th style="text-align: center"><strong>3 context sets</strong></th> 
-            <th style="text-align: center"><strong>5 context sets</strong></th>
-            <th style="text-align: center"><strong>7 context sets</strong></th>
-            <th style="text-align: center"><strong>10 context sets</strong></th>
-		</tr>
-		<tr>
-			<td style="text-align: center"><audio src="mysamples/various_llm_ce_strategies/1 context sets/000057.wav" controls="" preload=""></audio></td> 
-            <td style="text-align: center"><audio src="mysamples/various_llm_ce_strategies/3 context sets/000057.wav" controls="" preload=""></audio></td>
-            <td style="text-align: center"><audio src="mysamples/various_llm_ce_strategies/5 context sets/000057.wav" controls="" preload=""></audio></td>
-            <td style="text-align: center"><audio src="mysamples/various_llm_ce_strategies/7 context sets/000057.wav" controls="" preload=""></audio></td>
-            <td style="text-align: center"><audio src="mysamples/various_llm_ce_strategies/10 context sets/000057.wav" controls="" preload=""></audio></td>
-		</tr>
-		
-		<tr>
-            <td style="text-align: left" colspan=5>2. 这里有满壁风动的盛唐芳华、飘逸灵动的飞天仙女、流传千古的九色鹿传说；这里见证东西方文化交汇，是中华文明几千年不断融会贯通的典范。这里，是敦煌。从公元四世纪至十四世纪，一千多年间，一代代人开窟造像，成就莫高窟这座举世闻名的艺术宝库，至今仍存七百三十五个洞窟、四点五万平方米壁画、两千多个彩塑。今天，在科技手段助力下，敦煌人有信心为莫高窟再续命千年。二零一六年，“数字敦煌”资源库平台上线，首次通过互联网向全球发布敦煌石窟三十个经典洞窟的高清数字化内容及全景漫游；二零二零年，“云游敦煌”微信小程序上线； 二零二三年，结合敦煌学研究成果与游戏科技的“数字藏经洞”上线。
-		</tr> 
-		<tr>
-			<th style="text-align: center"><strong>1 context sets</strong></th>
-            <th style="text-align: center"><strong>3 context sets</strong></th> 
-            <th style="text-align: center"><strong>5 context sets</strong></th>
-            <th style="text-align: center"><strong>7 context sets</strong></th>
-            <th style="text-align: center"><strong>10 context sets</strong></th>
-		</tr>
-		<tr>
-			<td style="text-align: center"><audio src="mysamples/various_llm_ce_strategies/1 context sets/000035.wav" controls="" preload=""></audio></td> 
-            <td style="text-align: center"><audio src="mysamples/various_llm_ce_strategies/3 context sets/000035.wav" controls="" preload=""></audio></td>
-            <td style="text-align: center"><audio src="mysamples/various_llm_ce_strategies/5 context sets/000035.wav" controls="" preload=""></audio></td>
-            <td style="text-align: center"><audio src="mysamples/various_llm_ce_strategies/7 context sets/000035.wav" controls="" preload=""></audio></td>
-            <td style="text-align: center"><audio src="mysamples/various_llm_ce_strategies/10 context sets/000035.wav" controls="" preload=""></audio></td>
-		</tr>	
-	</tbody>
-</table>
-<h3>4.3 Various Context Utts</h3>
-<table>
-	<tbody>
-		<tr>
-            <td style="text-align: left" colspan=4>1. 八月八日，为期十二天的成都大运会将正式闭幕。当来自世界各地的年轻人齐聚“蓉城”，有人在这里实现梦想，有人在这里收获感动，还有人自带“社牛”属性，成为本届大赛上的“显眼包”。 有网友说，大运会上的显眼包是不分国界的。在大运会开幕后不久，阿根廷代表团的“显眼包”就因在摆渡车上载歌载舞，登上了热搜榜。瞅这欢乐的气氛，不知道的还以为他们是来旅游的。可怜小小的摆渡车，承受了这个年纪不该承受的重量。其实，从大运会开幕以来，阿根廷代表团就一直很“嗨皮”。有人在场边为队友打鼓助威，还有队员跟着中国球迷高唱“梅西之歌”。
-		</tr> 
-		<tr>
-			<th style="text-align: center"><strong>1 context utts</strong></th>
-            <th style="text-align: center"><strong>2 context utts</strong></th> 
-            <th style="text-align: center"><strong>3 context utts</strong></th>
-            <th style="text-align: center"><strong>4 context utts</strong></th>
-		</tr>
-		<tr>
-			<td style="text-align: center"><audio src="mysamples/various_llm_ce_strategies/1 context utts/000069.wav" controls="" preload=""></audio></td> 
-            <td style="text-align: center"><audio src="mysamples/various_llm_ce_strategies/2 context utts/000069.wav" controls="" preload=""></audio></td>
-            <td style="text-align: center"><audio src="mysamples/various_llm_ce_strategies/3 context utts/000069.wav" controls="" preload=""></audio></td>
-            <td style="text-align: center"><audio src="mysamples/various_llm_ce_strategies/4 context utts/000069.wav" controls="" preload=""></audio></td>
-		</tr>
-		
-		<tr>
-            <td style="text-align: left" colspan=4>2. 今年七月，鲍女士在某二手交易平台上挂了两张星巴克星礼卡，售价三百八十元，面值共四百元。一位买家通过消息页面联系称想购买，随后平台页面显示“买家已拍下”，鲍女士以为买家“已经拍下并付款”，于是给了对方卡号密码。可她随后发现，买家只是拍下了商品，并没有进行后续付款操作。“当时买家反复表示已拍好，催促我给他卡号和密码，让我误以为对方已经拍下并付款，可以进行下一步操作，于是就把卡号和密码给了对方。”鲍女士说，直到十五分钟后，她看到系统跳出的提示才知道，对方只是拍下了商品，并未付款。由于是虚拟产品，获取卡号密码即可使用，鲍女士赶紧联系买家，催促对方付款，但对方却是“已读不回”。“我意识到自己可能遭遇了网络交易骗局，想立即冻结订单，却发现无法操作。
-		</tr> 
-		<tr>
-			<th style="text-align: center"><strong>1 context utts</strong></th>
-            <th style="text-align: center"><strong>2 context utts</strong></th> 
-            <th style="text-align: center"><strong>3 context utts</strong></th>
-            <th style="text-align: center"><strong>4 context utts</strong></th>
-		</tr>
-		<tr>
-			<td style="text-align: center"><audio src="mysamples/various_llm_ce_strategies/1 context utts/000081.wav" controls="" preload=""></audio></td> 
-            <td style="text-align: center"><audio src="mysamples/various_llm_ce_strategies/2 context utts/000081.wav" controls="" preload=""></audio></td>
-            <td style="text-align: center"><audio src="mysamples/various_llm_ce_strategies/3 context utts/000081.wav" controls="" preload=""></audio></td>
-            <td style="text-align: center"><audio src="mysamples/various_llm_ce_strategies/4 context utts/000081.wav" controls="" preload=""></audio></td>
-		</tr>
-	</tbody>
-</table>
+<h2>4. Fine-grained semantic control<a name="fine-grained semantic control"></a></h2>
   <br>
   <hr>
   <br>
