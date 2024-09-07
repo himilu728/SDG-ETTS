@@ -3,7 +3,7 @@
     
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Synthesizing Long-Form Speech merely from Sentence-Level Corpus with Content Extrapolation and LLM Contextual Enrichment</title>
+<title>Controllable Emotional Speech Synthesis via Semantic Diffusion Guidance</title>
 <meta name="generator" content="Jekyll v3.9.0">
 <meta property="og:title" content="TODO: title">
 <meta property="og:locale" content="en_US">
@@ -18,9 +18,9 @@
   </head>
   <body data-new-gr-c-s-check-loaded="14.1001.0" data-gr-ext-installed="">
     <section class="page-header">
-    <h2 class="project-name">
-    	Synthesizing Long-Form Speech merely from Sentence-Level Corpus with Content Extrapolation and LLM Contextual Enrichment
-	</h2>
+    <h3 class="project-name">
+    	Controllable Emotional Speech Synthesis via Semantic Diffusion Guidance
+	</h3>
     <br>
     <h2 class="project-tagline">
       <center>Under Review</center>
@@ -32,7 +32,7 @@
 <h2>0. Contents</h2>
 <ul>
   <li><a href="#abstract">Abstract</a></li>
-  <li><a href='#short_utterance'>Short Utterance</a></li>
+  <li><a href='#emotion_transfer'>Emotion Transfer</a></li>
   <li><a href='#long_form_utterance'>Long-form Utterance</a></li>
   <li><a href='#various_LLM_CE_strategies'>Various LLM-CE Strategies</a></li>
 </ul>
@@ -40,19 +40,34 @@
 <br>
 <h2 id="abstract">1. Abstract<a name="abstract"></a></h2>
 <p> 
-	Current text-to-speech (TTS) models can produce natural speech but often fail to synthesize long-form speech properly when only sentence-level corpus is available. The failure is mainly due to 1) poor length generalization of the acoustic model, 2) lack of appropriate pause marks in the inference text, and 3) absence of contextual information during training. We propose Content Extrapolation, which includes introducing Moving Average Equipped Gated Attention (MEGA) to improve the model's generalization for addressing 1) and presenting the Global-information-enhanced Classification Pause Insertion model (GCPI) to address 2). For 3), we propose LLM-based Contextual Enrichment (LLM-CE) to generate multiple sets of different contexts. Experiments show that the proposed methods solve the above issues and successfully generate long-form speech with clear pronunciation and natural prosody using only sentence-level corpus, reducing training costs.
-
+	Although current emotional text-to-speech (ETTS) models can synthesize high-quality speech, synthesizing emotional speech without annotated data remains a challenging task. 
+	In this paper, we propose semantic diffusion guidance (SDG), which alleviates the dependence on annotated emotional information by modeling emotions from a semantic perspective.
+	Accordingly, we build SDG-ETTS, integrating language and audio guidance into a unified framework. 
+	Specifically, we first train an emotion-unconditional diffusion model. Then, the encoder of the contrastive language-audio pretraining (CLAP) model is fine-tuned in a self-supervised manner to obtain the guidance module.
+	During inference, audio-text or audio matching scores are iteratively injected into the diffusion model to guide the sampling process, without the need for retraining.
+	Our experimental results demonstrate that SDG-ETTS can effectively generate emotional samples based on different types of guidance while maintaining high speech quality without any data annotations. Particularly, when performing audio style transfer, it achieves comparable performance to state-of-the-art unsupervised 
+	baselines.
+</p>
+<center><img src='myfig/SDG.png'></center>
+<p style="text-align: justify; font-size:16px;font-color:#D5CFCF;margin-left: 20px;margin-right:20px ;margin-top: 10px;">
+	Fig1:  The fine-tuning process of the CLAP audio encoder and the inference process of the proposed SDG-ETTS. The purple dashed box provides the guiding function for the diffusion model during a single iteration of inference.
 </p>
 
 
-<h2>2. Short Utterance<a name="short_utterance"></a></h2>
+<h2>2. Emotion Transfer<a name="emotion_transfer"></a></h2>
+<p>
+	In audio style guidance (ASG) inference mode, style transfer is allowed by providing a reference audio. This allows us to make direct comparisons with existing reference-based unsupervised style transfer methods.
+	<br>
+	We conducted parallel transfer test, meaning the target text information is the same as reference audio's.
+</p>
 <table>
    <thead>
     	<tr>
     		<th style="text-align: center"><strong>Transcript</strong></th>
 	      	<th style="text-align: center"><strong>Ground Truth</strong></th>
-	        <th style="text-align: center"><strong>FastSpeech2</strong></th>
-	        <th style="text-align: center"><strong>Proposed</strong></th>
+	        <th style="text-align: center"><strong>GradTTS-GST</strong></th>
+	        <th style="text-align: center"><strong>GradTTS-VAE</strong></th>
+	        <th style="text-align: center"><strong>Ours (ASG)</strong></th>
 	    </tr>
   	</thead> 
   	<tbody>
