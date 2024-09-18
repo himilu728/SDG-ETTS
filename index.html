@@ -33,7 +33,7 @@
 <ul>
   <li><a href="#abstract">Abstract</a></li>
   <li><a href='#emotion_transfer'>Emotion Transfer</a></li>
-  <!--<li><a href='#long_form_utterance'>Long-form Utterance</a></li>-->
+  <li><a href='#different_inference_guidance_methods'>Different Inference Guidance Methods</a></li>
   <li><a href='#fine-grained semantic control'>Fine-grained semantic control</a></li>
 </ul>
 
@@ -64,7 +64,7 @@
    <thead>
     	<tr>
     		<th style="text-align: center"><strong>Transcript</strong></th>
-	      	<th style="text-align: center"><strong>Reference Signal</strong></th>
+	      	<th style="text-align: center"><strong>Reference (GT)</strong></th>
 	        <th style="text-align: center"><strong>GradTTS-GST</strong></th>
 	        <th style="text-align: center"><strong>GradTTS-VAE</strong></th>
 	        <th style="text-align: center"><strong>Ours (ASG)</strong></th>
@@ -150,18 +150,106 @@
         </tr>
         <tr>
 			<td style="text-align: left">12. then sadly it is much farther.</td>
-            <td style="text-align: left"><audio src="My Samples/Section A/A-sur-GT-03.wav" controls="" preload=""></audio></td>
+            <td style="text-align: left"><audio src="My Samples/Section A/A-sur-GT-03.wav" controls="" preload="" ></audio></td>
             <td style="text-align: left"><audio src="My Samples/Section A/A-sur-GST-03.wav" controls="" preload=""></audio></td>
 	        <td style="text-align: left"><audio src="My Samples/Section A/A-sur-VAE-03.wav" controls="" preload=""></audio></td>
             <td style="text-align: left"><audio src="My Samples/Section A/A-sur-ASG-03.wav" controls="" preload=""></audio></td>
         </tr>
 	</tbody>
 </table>
-<h2>3. <a name=""></a></h2>
+<h2>3. Different Inference Guidance Methods<a name="different_inference_guidance_methods"></a></h2>
+<p>
+	The flexibility of the guiding module allows us to perform guided
+	inference in various ways. In this subsection, we evaluate the performance differences under different guiding conditions. The speech
+	needed for ACG inference is synthesized by GradTTS using the prompt templates <i>"this is a sound of [emotion label]"</i> in a neutral tone.
+</p>
+<p>
+	In the table below, LG stands for Language Guidance. Audio Guidance (AG) depends on what kind of information is sought in the audio: Audio Style Guidance (ASG) and Audio Content Guidance (ACG), as well as the multimodal guidance (MG) that combines language and voice.
+</p>
 <table>
+	<thead>
+    	<tr>
+    		<th style="text-align: center"><strong>Transcript</strong></th>
+    		<th style="text-align: center"><strong>Emotion Label</strong></th>
+	      	<th style="text-align: center"><strong>LG</strong></th>
+	        <th style="text-align: center"><strong>ASG</strong></th>
+	        <th style="text-align: center"><strong>ACG</strong></th>
+	        <th style="text-align: center"><strong>LG+ACG</strong></th>
+	        <th style="text-align: center"><strong>LG+ASG</strong></th>
+	    </tr>
+  	</thead> 
+  	<tbody>
+        <tr>
+			<td style="text-align: left">1. that was his chief thought.</td>
+			<td style="text-align: center;"><b>(Angry)</b></td>
+            <td style="text-align: left"><audio src="My Samples/Section B/LG-02.wav" controls="" preload=""></audio></td>
+            <td style="text-align: left"><audio src="My Samples/Section B/ASG-02.wav" controls="" preload=""></audio></td>
+	        <td style="text-align: left"><audio src="My Samples/Section B/ACG-02.wav" controls="" preload=""></audio></td>
+            <td style="text-align: left"><audio src="My Samples/Section B/LG-ACG-02.wav" controls="" preload=""></audio></td>
+            <td style="text-align: left"><audio src="My Samples/Section B/LG-ASG-02.wav" controls="" preload=""></audio></td>
+        </tr>
+        <!--<tr>
+			<td style="text-align: left">2. the nine the eggs, i keep. </td>
+			<td style="text-align: center;"><b>(Angry)</b></td>
+            <td style="text-align: left"><audio src="My Samples/Section B/LG-01.wav" controls="" preload=""></audio></td>
+            <td style="text-align: left"><audio src="My Samples/Section A/A-ASG-02.wav" controls="" preload=""></audio></td>
+	        <td style="text-align: left"><audio src="My Samples/Section B/ACG-01.wav" controls="" preload=""></audio></td>
+            <td style="text-align: left"><audio src="My Samples/Section B/LG-ACG-01.wav" controls="" preload=""></audio></td>
+            <td style="text-align: left"><audio src="My Samples/Section B/LG-ASG-01.wav" controls="" preload=""></audio></td>
+        </tr>-->
+        <tr>
+			<td style="text-align: left">2. clear than clear water! </td>
+			<td style="text-align: center;"><b>(Happy)</b></td>
+            <td style="text-align: left"><audio src="My Samples/Section B/LG-03.wav" controls="" preload=""></audio></td>
+            <td style="text-align: left"><audio src="My Samples/Section B/ASG-03.wav" controls="" preload=""></audio></td>
+	        <td style="text-align: left"><audio src="My Samples/Section B/ACG-03.wav" controls="" preload=""></audio></td>
+            <td style="text-align: left"><audio src="My Samples/Section B/LG-ACG-03.wav" controls="" preload=""></audio></td>
+            <td style="text-align: left"><audio src="My Samples/Section B/LG-ASG-03.wav" controls="" preload=""></audio></td>
+        </tr>
+        <tr>
+			<td style="text-align: left">3. they went up to the dark mass job had pointed out.</td>
+			<td style="text-align: center;"><b>(Sad)</b></td>
+            <td style="text-align: left"><audio src="My Samples/Section B/LG-05.wav" controls="" preload=""></audio></td>
+            <td style="text-align: left"><audio src="My Samples/Section B/ASG-05.wav" controls="" preload=""></audio></td>
+	        <td style="text-align: left"><audio src="My Samples/Section B/ACG-05.wav" controls="" preload=""></audio></td>
+            <td style="text-align: left"><audio src="My Samples/Section B/LG-ACG-05.wav" controls="" preload=""></audio></td>
+            <td style="text-align: left"><audio src="My Samples/Section B/LG-ASG-05.wav" controls="" preload=""></audio></td>
+        </tr>
+        <tr>
+			<td style="text-align: left">4. that i owe my thanks to you.</td>
+			<td style="text-align: center;"><b>(Surprise)</b></td>
+            <td style="text-align: left"><audio src="My Samples/Section B/LG-06.wav" controls="" preload=""></audio></td>
+            <td style="text-align: left"><audio src="My Samples/Section B/ASG-06.wav" controls="" preload=""></audio></td>
+	        <td style="text-align: left"><audio src="My Samples/Section B/ACG-06.wav" controls="" preload=""></audio></td>
+            <td style="text-align: left"><audio src="My Samples/Section B/LG-ACG-06.wav" controls="" preload=""></audio></td>
+            <td style="text-align: left"><audio src="My Samples/Section B/LG-ASG-06.wav" controls="" preload=""></audio></td>
+        </tr>
+        
+   </tboby>
 </table>
 
 <h2>4. Fine-grained semantic control<a name="fine-grained semantic control"></a></h2>
+
+<center><img src='myfig/mel_pitch.png'></center>
+<p style="text-align: justify; font-size:16px;font-color:#D5CFCF;margin-left: 20px;margin-right:20px ;margin-top: 10px;">
+	The mel-spectrograms and pitch contours of the synthesized speech using different prompt templates, where the [emotion label] in the example is <i>"angry"</i>.
+</p>
+<table>
+	<thead>
+    	<tr>
+	        <th style="text-align: center"><strong>Low</strong></th>
+	        <th style="text-align: center"><strong>Medium</strong></th>
+	        <th style="text-align: center"><strong>High</strong></th>
+	    </tr>
+  	</thead> 
+  	<tbody>
+        <tr>
+			<td style="text-align: left"><audio src="My Samples/Section C/low_sample 85.wav" controls="" preload=""></audio></td>
+            <td style="text-align: left"><audio src="My Samples/Section C/medium_sample 85.wav" controls="" preload=""></audio></td>
+            <td style="text-align: left"><audio src="My Samples/Section C/high_sample 85.wav" controls="" preload=""></audio></td>
+        </tr>
+     </tbody>
+</table>
   <br>
   <hr>
   <br>
