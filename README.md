@@ -1,2 +1,2 @@
 # SDG-ETTS
-demo samples
+Audio samples for SDG-ETTS.
