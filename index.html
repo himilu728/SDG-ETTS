@@ -23,7 +23,8 @@
 	</p>
     <br>
     <h2 class="project-tagline">
-      <center>Submitted to ICASSP 2025</center>
+      <center>Submitted to Interspeech 2025</center>
+      <center><a href='https://github.com/himilu728/SDG-ETTS'>Key Code</a></center>
     </h2>
     </section>
 
@@ -40,15 +41,9 @@
 <br>
 <h2 id="abstract">1. Abstract<a name="abstract"></a></h2>
 <p> 
-	Although current emotional text-to-speech (ETTS) models can synthesize high-quality speech, synthesizing emotional speech without annotated data remains a challenging task. 
-	In this paper, we propose semantic diffusion guidance (SDG), which alleviates the dependence on annotated emotional information by modeling emotions from a semantic perspective.
-	Accordingly, we build SDG-ETTS, integrating language and audio guidance into a unified framework. 
-	Specifically, we first train an emotion-unconditional diffusion model. Then, the encoder of the contrastive language-audio pretraining (CLAP) model is fine-tuned in a self-supervised manner to obtain the guidance module.
-	During inference, audio-text or audio matching scores are iteratively injected into the diffusion model to guide the sampling process, without the need for retraining.
-	Our experimental results demonstrate that SDG-ETTS can effectively generate emotional samples based on different types of guidance while maintaining high speech quality without any data annotations. Particularly, when performing audio style transfer, it achieves comparable performance to state-of-the-art unsupervised 
-	baselines.
+	Although current emotional text-to-speech (ETTS) models can synthesize high-quality speech, synthesizing emotional speech without annotated data remains a challenging task. In this paper, we propose semantic diffusion guidance (SDG), which alleviates the dependence on annotated emotional information by modeling emotions from a semantic perspective. Accordingly, we build SDG-ETTS, which explores language guidance, audio guidance, or both in a unified framework. During inference, the gradient of audio-text or audio matching scores is injected into a pretrained unconditional diffusion model to guide the sampling process, without re-training the diffusion model. Experimental results demonstrate that SDG-ETTS can effectively generate emotional samples based on different guidance while maintaining high speech quality without any data annotations. Particularly, when performing audio style transfer, it achieves comparable performance to state-of-the-art unsupervised baselines.
 </p>
-<center><img src='myfig/SDG.png'></center>
+<center><img src='myfig/SDG (3).png'></center>
 <p style="text-align: justify; font-size:16px;font-color:#D5CFCF;margin-left: 20px;margin-right:20px ;margin-top: 10px;">
 	Fig. 1:  The fine-tuning process of the CLAP audio encoder and the inference process of the proposed SDG-ETTS. The purple dashed box provides the guiding function for the diffusion model during a single iteration of inference.
 </p>
